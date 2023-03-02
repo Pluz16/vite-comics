@@ -4,16 +4,9 @@
         <div><img src="../assets/img/dc-logo.png" alt=""></div>
         <div>
         <ul class="flex">
-        <li><a href="#">Characters</a></li>
-        <li><a href="#">Comics</a></li>
-        <li><a href="#">Movies</a></li>
-        <li><a href="#">Tv</a></li>
-        <li><a href="#">Games</a></li>
-        <li><a href="#">Collectibles</a></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Fans</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Shop</a></li>
+            <li v-for="(menu, index) in menu" :key="index">
+                    <a :href="menu.url" :class="{ 'active': menu.current }">{{ menu.text }}</a>
+            </li>
         </ul>
         </div>
 </div>
@@ -22,6 +15,57 @@
 <script>
     export default {
         name: 'HeaderComponent',
+        data() {
+            return {
+                menu: [
+                {
+                    text: "Characters",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Comics",
+                    url: "#",
+                    current: true,
+                },
+                {
+                    text: "Movies",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Tv",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Games",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Collectibles",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Videos",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Fans",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "News",
+                    url: "#",
+                    current: false,
+                },
+                ]
+            }
+        },  
     }
 </script>
 
@@ -38,11 +82,19 @@
     }
     ul{
         list-style: none;
-        li{
-            padding: 3px;
-            text-transform: uppercase;
-            text-decoration: none;
-        }
+        margin:  1rem 4rem;
+            li a{
+                display: inline-block;
+                padding: 1rem;
+                text-decoration: none;
+                font-weight: 600;
+                color: $greydark;
+                text-transform: uppercase;
+                &.active,
+                &:hover{
+                    color: $blue;
+                }
+            }
     }
 </style>
 
