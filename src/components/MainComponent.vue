@@ -7,40 +7,12 @@
     <section class="merch">
         <div class="flex container">
         <ul class="flex">
-        <li>
-        <div class="flex">
-        <img src="../assets/img/buy-comics-digital-comics.png" alt="">
-        <h4>Digital Comics</h4>
-        </div>
-        </li>
-
-        <li>
-        <div class="flex">
-        <img src="../assets/img/buy-comics-merchandise.png" alt="">
-        <h4>Dc Merchandise</h4>
-        </div>
-        </li>
-
-        <li>
-        <div class="flex">
-        <img src="../assets/img/buy-comics-subscriptions.png" alt="">
-        <h4>Subscription</h4>
-        </div>
-        </li>
-
-        <li>
-        <div class="flex">
-        <img src="../assets/img/buy-comics-shop-locator.png" alt="">
-        <h4>Comic Shop Locator</h4>
-        </div>
-        </li>
-
-        <li>
-        <div class="flex">
-        <img src="../assets/img/buy-dc-power-visa.svg" alt="">
-        <h4>Dc Power Visa</h4>
-        </div>
-        </li>
+            <li v-for="(data, index) in data" :key="index">
+                <div class="flex">
+                <img :src="data.url" alt="">
+                <h4>{{ data.text }}</h4>
+                </div>  
+            </li>
 
         </ul>
         </div>
@@ -52,6 +24,32 @@
 <script>
     export default {
         name: 'MainComponent',
+        data() {
+            return {
+                data: [
+                {
+                    text: "Digital Comics",
+                    url: "../assets/img/buy-comics-digital-comics.png",
+                },
+                {
+                    text: "Dc Merchandise",
+                    url: "../assets/img/buy-comics-merchandise.png",
+                },
+                {
+                    text: "Scubscription",
+                    url: "../assets/img/buy-comics-scubscriptions.png",
+                },
+                {
+                    text: "Comic Shop Locator",
+                    url: "../assets/img/buy-comics-shop-locator.png",
+                },
+                {
+                    text: "Dc Power Visa",
+                    url: "../assets/img/buy-dc-power-visa.png",
+                },
+                ]
+            }
+        },  
     }
 </script>
 
